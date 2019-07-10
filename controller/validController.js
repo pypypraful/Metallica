@@ -14,5 +14,11 @@ exports.validate = (method) =>{
         body('price',"price doesn't exists").exists().isInt()
       ]
     }
+    case 'updateTrades':{
+      return [
+        body('status', 'status must be present and can be OPEN or NOMINATED').exists().isIn(['OPEN','NOMINATED']),
+        body('id',"Id must be present").exists()
+      ]
+    }
   }
 }
